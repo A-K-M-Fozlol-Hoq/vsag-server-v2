@@ -13,5 +13,5 @@ router.route('/add').post(addForm);
 router.route('/getAll').get(getAll);
 
 // Path => contactUs/getBytId/:searchStr
-router.route('/contactUs/:id').delete(deleteForm);
+router.route('/deleteById/:id').delete(deleteForm);
 module.exports = router;
