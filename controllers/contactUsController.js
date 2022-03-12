@@ -47,4 +47,4 @@ contactUsController.deleteForm = async (req, res, next) => {
   }
 };
 
-module.exports = adminController;
+module.exports = contactUsController;
