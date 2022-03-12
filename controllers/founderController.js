@@ -41,6 +41,7 @@ founderController.getFounder = async (req, res, next) => {
 founderController.updateFounder = async (req, res, next) => {
   try {
     const image = req.files.image;
+    const id = req.params.id;
     const description = req.body.description;
     const newImg = image.data;
     const encImg = newImg.toString('base64');

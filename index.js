@@ -13,6 +13,8 @@ const slideRouter = require('./router/slideRouter');
 const emailRouter = require('./router/emailRouter');
 const adminRouter = require('./router/adminRouter');
 const contactUsRouter = require('./router/contactUsRouter');
+const founderRouter = require('./router/founderRouter');
+const coFounderRouter = require('./router/coFounderRouter');
 
 const port = process.env.PORT || 4000;
 
@@ -47,6 +49,8 @@ app.use('/slide', slideRouter);
 app.use('/email', emailRouter);
 app.use('/admin', adminRouter);
 app.use('/contactUs', contactUsRouter);
+app.use('/founder', founderRouter);
+app.use('/coFounder', coFounderRouter);
 app.listen(process.env.PORT || port, () =>
   console.log(`Example app listening.`)
 );
