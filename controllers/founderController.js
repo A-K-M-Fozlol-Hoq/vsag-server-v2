@@ -6,6 +6,7 @@ founderController.addFounder = async (req, res, next) => {
   // Read data from request body
   const image = req.files.image;
   const description = req.body.description;
+  const name = req.body.name;
   const newImg = image.data;
   const encImg = newImg.toString('base64');
 
@@ -18,6 +19,7 @@ founderController.addFounder = async (req, res, next) => {
   const founderInfo = {
     image: img,
     description,
+    name,
   };
   const founder = await new Founder(founderInfo);
 
@@ -41,8 +43,8 @@ founderController.getFounder = async (req, res, next) => {
 founderController.updateFounder = async (req, res, next) => {
   try {
     const image = req.files.image;
-    const id = req.params.id;
     const description = req.body.description;
+    const name = req.body.name;
     const newImg = image.data;
     const encImg = newImg.toString('base64');
 
@@ -52,9 +54,9 @@ founderController.updateFounder = async (req, res, next) => {
       img: Buffer.from(encImg, 'base64'),
     };
 
-    const founder = await Founder.findOneAndUpdate(
-      { _id: id },
-      { $set: { image: img, description } }
+    const founder = await Founder.updateMany(
+      {},
+      { $set: { image: img, description: description, name: name } }
     );
     res.send(founder);
   } catch (err) {

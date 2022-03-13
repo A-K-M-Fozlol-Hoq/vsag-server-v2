@@ -12,5 +12,5 @@ router.route('/add').post(addCoFounder);
 router.route('/getAll').get(getCoFounder);
 
 // Path => admin/getByName/:searchStr
-router.route('/updateFounder/:id').post(updateCoFounder);
+router.route('/updateCoFounder/').post(updateCoFounder);
 module.exports = router;

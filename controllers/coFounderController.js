@@ -5,6 +5,7 @@ const coFounderController = {};
 coFounderController.addCoFounder = async (req, res, next) => {
   // Read data from request body
   const image = req.files.image;
+  const name = req.files.name;
   const description = req.body.description;
   const newImg = image.data;
   const encImg = newImg.toString('base64');
@@ -18,6 +19,7 @@ coFounderController.addCoFounder = async (req, res, next) => {
   const coFounderInfo = {
     image: img,
     description,
+    name,
   };
   const coFounder = await new CoFounder(coFounderInfo);
 
@@ -42,6 +44,7 @@ coFounderController.updateCoFounder = async (req, res, next) => {
   try {
     const image = req.files.image;
     const description = req.body.description;
+    const name = req.body.name;
     const newImg = image.data;
     const encImg = newImg.toString('base64');
 
@@ -50,10 +53,9 @@ coFounderController.updateCoFounder = async (req, res, next) => {
       size: image.size,
       img: Buffer.from(encImg, 'base64'),
     };
-
-    const coFounder = await CoFounder.findOneAndUpdate(
-      { _id: id },
-      { $set: { image: img, description } }
+    const coFounder = await CoFounder.updateMany(
+      {},
+      { $set: { image: img, description: description, name: name } }
     );
     res.send(coFounder);
   } catch (err) {
