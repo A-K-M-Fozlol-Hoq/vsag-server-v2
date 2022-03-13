@@ -3,6 +3,10 @@ const { Schema } = mongoose;
 const objectId = Schema.ObjectId;
 const founderSchema = mongoose.Schema(
   {
+    name: {
+      type: String,
+      required: true,
+    },
     description: {
       type: String,
       required: true,
