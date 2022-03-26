@@ -15,8 +15,9 @@ const adminRouter = require('./router/adminRouter');
 const contactUsRouter = require('./router/contactUsRouter');
 const founderRouter = require('./router/founderRouter');
 const coFounderRouter = require('./router/coFounderRouter');
+const pageRouter = require('./router/pageRouter');
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 4172;
 
 const app = express();
 require('dotenv').config();
@@ -51,6 +52,7 @@ app.use('/admin', adminRouter);
 app.use('/contactUs', contactUsRouter);
 app.use('/founder', founderRouter);
 app.use('/coFounder', coFounderRouter);
+app.use('/page', pageRouter);
 app.listen(process.env.PORT || port, () =>
   console.log(`Example app listening.`)
 );

@@ -4,7 +4,7 @@
   "description": "��#\u0000 \u0000v\u0000s\u0000a\u0000g\u0000-\u0000s\u0000e\u0000r\u0000v\u0000e\u0000r\u0000\r\u0000 \u0000",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=production node index.js",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
